@@ -10,6 +10,7 @@ public class TagBehaviour : MonoBehaviour
     public float ScoreMultiplier = 3;
     public float Score;
     public GameObject TagMarker;
+    public GameObject Explosion;
 
     private void Update()
     {
@@ -38,6 +39,7 @@ public class TagBehaviour : MonoBehaviour
 
         if(IsTagger == true)
         {
+            Instantiate(Explosion, transform.position, transform.rotation);
             Invoke("Respawn", SpawnDelay);
             gameObject.SetActive(false);
         }
